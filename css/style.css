@@ -1,0 +1,637 @@
+@charset "utf-8";
+
+/*기본css*/
+
+body,h1,h2,h3,h4,h5,h6,p{
+    margin:0;
+    
+}
+
+ul{
+    margin:0;
+    padding:0;
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+.inner{
+    width:940px;
+    margin:0 auto;
+}
+
+.cf:after{
+    content:"";
+    display:block;
+    clear:both;
+}
+/****전체시작******/
+#wrap{}
+
+
+
+
+/**********헤더시작************/
+
+#header{
+    
+}
+
+#header .inner{ /*헤더 안!에 있는 이너.  릴레이티브는 앱솔루트 짝궁이라서 이너라는 놀공간을 만들어줘야함*/
+    position: relative;
+}
+#header h1{
+    text-align: center;/*이미지는 연약한아이라서 이미지여도 텍스트얼라인해도 중간으로감*/
+    padding-top: 50px;
+}
+#header h1 a{}
+#header h1 a img{}
+
+.headerQuick{
+    position: absolute;/*앱솔루트일떄만 !!!!!!위치속성 탑, 라이트 이런거 쓸수있음!!!!!!! 그리고 앱솔루트쓰면 놀공간을 만들어줘야함 짝궁 릴레이티브!! 이너안에서 놀수잇게 릴레이티브로 설정!!!*/
+    top:0;
+    left: 0;
+    
+}
+.headerQuick li{
+    width:99px;
+    height: 80px;
+    text-align: center;
+    float:left;/*플루트 레프트는  프루트레프트 해줄아이 html 바로위 부모에게 cf를 붙여줍니다.그리고 css에서는 작은애한테 플루트 레프트줘야됨. (세로주룩 사진을 가로로 주룩해주는거) ㅠㄴ*/
+}
+
+
+.headerQuick li:last-child img{
+    margin-top:21px; /*마진은 공백을생기게하는거고, 패딩은 자신을 포함해서 늘리는것!!*/
+}
+
+.headerQuick li a{
+    display: block;
+    height: 100%; /*이거 100퍼한 이유는 블락이 안잡히는 경우가있는데 이런경우에는 부모값을받아서 헤이트 100채워서 클릭하는 영역이 넓게해준다..*/
+}
+.headerQuick li a img{}
+
+.utill{
+    position: absolute;
+    top: 15px;
+    right:0;
+}
+
+.utill li{
+    float:left;/*cf를줘야하지만  앱솔루트 줘서 cf를줄필요가없음. 앱솔루트가있으면 cf값을 줘봤자 무용지물*/
+}
+
+.utill li:after{ /*글옆에 선만들어주는거~~~~~~~~~~~~~~~~~~~~~~*/
+    content: "";/*에프터랑 컨텐트 ,디스플레이인라인블럭은 세트!*/
+    display: inline-block;
+    width: 1px;
+    height: 6px;
+    background: gray;
+    vertical-align: middle;/*세로정렬 사진이랑 맞게해주는거..!! 여기도 버티칼얼라인 줘야하고 img에도 주면 딱맞게됨!*/
+    margin: 0px 12px;
+}
+
+.utill li:last-child:after{ /*애프터값 줘서 마지막꺼 없애려면 이거위에꺼 이름 다적어줘야 에프터값 먹힘 ㅠㅠ*/
+    display:none;/*안보임처리*/
+}
+
+
+.utill li a{
+        display: inline-block;
+
+}
+.utill li a img{
+        vertical-align: middle; /*세로정렬 사진이랑 맞게해주는거..!! a에도  버티칼얼라인 줘야하고 li에도 주면 더 정확하게 딱맞게됨!*/
+}
+
+
+.gnb{
+    font-size: 0;
+    text-align: center;/*전체를 중간정렬해야되기때문에 gnb에 정렬줌...*/
+
+}
+.gnb li{
+    display: inline-block; /*★디스플레이 인라인블럭은 무조건 윗부모에 폰트사이즈 0 이건 줄바꿈 엔터때문에 폰트사이즈0주는것임..항상 외워야할것 1순위..*/
+    vertical-align: top; /* on이랑 off둘이 잡아주는거. 디스플레이 블락은 약해서 버티칼얼라인으로 꼭잡아줘야됨*/
+}
+
+.gnb li a{
+    padding:20px 30px;/* 위 아래*/
+    display: block;/*a태그는 인라인요소라서 디스플레이 블락을줘야 패딩값을 넣엇을때 먹힘!!!
+    다른요소들도 인라인요소가 많아서 패딩이나 이런거 안먹으면 디스플레이 블락해보면서 차근차근 외워가면되는부분~~~~~~~~~~~~~~~~~~~*/
+}
+.gnb li a img{}
+
+.gnb li .on{
+    display: none; /*호프전에 디스플레이 논처리해서 없애주고~*/
+    
+}
+
+.gnb li:hover .on{
+    display: block; /*li를 on했을땐 빨간색이 보임처리 해달라!*/
+}
+
+.gnb li:hover .off{
+    display: none;/*off했을때 슝올라가는거 안하려면 저위에 .gnb li에 버티칼얼라인 탑하면 똑같이 촥붙는다*/
+}
+
+
+
+
+
+/*slider 메인슬라이더가 어느 사용자의 컴퓨터에들어가도 다 알맞게 보이게 하는법*/
+#mainSlider{
+    height: 480px; /* 들어갈 진짜 이미지 세로값을 여기다가 넣음..*/
+    position: relative;/*앱솔루트가 놀영역 만들어주는 릴레이티브...*/
+    overflow: hidden; /*스크롤 없애주는거!!!!!!!!!!*/
+}
+
+#mainSlider img{
+    position: absolute;/*릴레이티브 위에다가 짞궁붙여줘야됨*/
+    display: block;/*이미지는 인라인요소라서 블락해서 없애줘야됨*/
+    left:50%;/*50프로 해줘야됨*/
+    margin-left: -960px; /*(중앙정렬하기위해)이미지의 가로값(1920px)의 반을 여기다 넣기...*/
+}
+
+
+
+/*메인슬라이더 만약에 css에서 중간으로 계속오게ㅏ하고 어느사용자컴터에서도 중간으로 오게하려면
+ center center 해주면됨..포지션릴레이티브랑 오버플러우 히든없애고 img저 밑에잇ㄴ는것들도 없애주고 훨씬간단하지만 메인이미지는 대부분 움직이는거라서 html에서 이미지를 넣어서 움직임효과를 줘야됨 그래서 css에서 잘안넣음 */
+
+/*slider 끘 
+/******************************************************************************************/
+
+
+#container{
+    padding: 30px; 0;
+}
+
+/*mainCon1*/
+
+.mainCon1{}
+.mainCon1 div{/*공통으로 들어가는 아이들찾아내기..div...*/
+    width:205px;
+    margin-right: 35px;
+    float: left;
+    
+}
+.mainCon1 h3{}
+.mainCon1 a{}
+.mainCon1 img{}
+
+
+
+
+.con1_1{}
+.con1_1 p{}
+.con1_1 ul{}
+.con1_1 ul li{}
+.con1_1 ul li a{}
+.con1_1 ul li a img{}
+
+
+
+.mainCon1 .con1_2{
+    width:460px; /*중간그룹 가로길이 늘린거임...사진내려가서 가로값줘서 들어갇도록*/
+}
+
+
+.con1_2{
+    font-size: 12px;
+}
+.con1_2 p{
+    color:gray;
+    margin-top: 10px;
+}
+.con1_2 ul{
+    margin: 40px 0;
+}
+.con1_2 ul li{
+    width:150px;
+    display:inline-block;
+    text-align: center;
+    background: url(../images/mall_bar01.gif) no-repeat;
+}
+
+.con1_2 ul li:first-child{ /*제일 앞에잇는 줄 이미지 없애는거. 백그라운드 아무값안줫을때 탑0이라서 제일앞에꺼만 없애주면됨!*/
+    background: none;
+}
+
+
+.con1_2 ul li a{
+    color: gray;
+    padding: 0 30px; /*위아래 0.. 양옆50...*/
+    display: block;
+
+}
+.con1_2 ul li a img{
+    display: block;
+    margin: 0 auto; /*디스플레이블락에는 마진영오토줄수잇음*/
+    margin-bottom: 15px;
+}
+
+
+
+
+.mainCon1 .con1_3{
+    margin-right: 0;
+}
+.con1_3 p{}
+.con1_3 ul{}
+.con1_3 ul li{}
+.con1_3 ul li a{}
+.con1_3 ul li a img{}
+
+
+/*********************쓰앵님이랑한거*****************************************/
+
+
+/*mainCon3*/
+.mainCon3 div{
+    float: left;
+    margin-right: 35px;
+    width: 205px;
+    color: gray;
+    font-size: 12px;
+}
+.mainCon3 p{
+    margin:10px 0;
+}
+
+.mainCon3 a{
+    color: gray;
+}
+
+.mainCon3{
+    margin:30px 0;
+}
+
+
+.mainCon3 .con3Quick{
+    margin-right: 0;
+}
+.con3Quick a{
+    display: inline-block;
+    margin:0 4px;
+}
+.con3Quick img{
+    display: block;
+    margin:0 auto;
+}
+
+
+.news ul{
+    margin-top: 10px;
+    line-height: 20px;/*글자사이 세로간격~조절하는거어~*/
+}
+.news ul li{}
+.news ul li a{
+    width:150px;
+    display:inline-block;
+    vertical-align: middle;
+    
+    
+    
+    
+    /*★★★★밑에 세개가 긴글자 한줄로처리하고 점점점 처리해주는거 세트★★★★*/
+    overflow:hidden;/*안보임처리해라*/
+    text-overflow:ellipsis; /*텍스트가 보이는부분은 일립시스 처리를해라*/
+    white-space: nowrap;/*띄워쓰기말고 한줄로해라*/
+    
+}
+.moreBtn img,.moreBtn span{
+    vertical-align:middle;
+} /*바로가기랑 ▶표시 정렬맞춰주려면 html에서 같이 그룹해주고여기서 버티칼얼라인 미들해줘야됨*/
+
+
+
+.news ul li span{
+    vertical-align: middle;
+}
+
+.news h3{
+    vertical-align:middle;
+}
+
+.news h3 img{
+    margin-left: 5px;
+}
+
+
+
+
+/*********************쓰앵님이랑한거*****************************************/
+
+
+
+/****************************내가한거*******************************************/
+.mainCon2{
+    color: gray;
+}
+.mainCon2 div{
+
+}
+
+.mainCon2 h4{
+    margin-bottom: 15px;
+    
+}
+.mainCon2 a{}
+.mainCon2 img{}
+
+.m2_1{
+
+    font-size: 0;/*이거말고 플루트 레프트로 올려도됨...근데잘몰겟음 ㅠㅠ*/
+}
+.m2_2{
+    font-size: 12px;
+    margin: 40px 0;
+}
+
+.con2_2 a{
+    
+}
+
+
+
+.con2_1{}
+.con2_1 a{}
+.con2_1 a img{}
+
+
+.con2_2{
+
+}
+.con2_2 h4{}
+.con2_2 h4 img{}
+.con2_2 p{}
+.con2_2 a{}
+.con2_2 a img{}
+
+
+
+
+.con2_3{
+
+}
+.con2_3 h4{}
+.con2_3 h4 img{}
+.con2_3 p{}
+.con2_3 a{}
+.con2_3 a img{}
+
+
+
+.con2_4{
+
+}
+.con2_4 h4{}
+.con2_4 h4 img{}
+.con2_4 h4 a img{}
+.con2_4 ul{}
+.con2_4 ul li{}
+.con2_4 ul li span{}
+
+
+
+.con2_5{}
+.con2_5 ul{}
+.con2_5 ul li{
+    float: left;
+    text-align: center;
+    margin: 0 5px;
+}
+.con2_5 ul li a{
+}
+.con2_5 ul li a img{}
+.con2_5 ul li a span{
+    display: block;
+}
+
+
+.m2_2 div{
+    width: 205px;
+    margin-right: 35px;
+    float: left;
+}
+
+
+.m2_2 .con2_5{
+    margin-right: 0;
+}
+/****************************내가한거끗****************************/
+
+/********************쌤이랑************************/
+
+/*maincon4*/
+.mainCon4{
+    border-top:2px solid red;
+    margin-top: 30px;
+    padding-top: 30px;
+}
+.mainCon4 h2{}
+.mainCon4 h2 img{
+    
+    vertical-align: middle;
+}
+
+
+
+.con4Sns{
+    
+    display: inline-block;
+    vertical-align: middle;
+}
+.con4Sns li{
+    float: left;
+    margin-right: 10px;
+    
+}
+.con4Sns li a{}
+.con4Sns li a img{}
+
+
+
+.con4box{
+    width: 205px;
+    margin-right: 35px;
+    font-size: 12px;
+    float:left;
+    margin:20px 35px 20px 0;
+    background: url(../images/48_48.png) no-repeat left center;
+    padding-left: 60px;
+    box-sizing: border-box; /*니가 가지고있는 사이즈 안에!!!!!!!!패딩값을 주겟다!!! 여기서는 205라는 값'안'에서 50패딩값주는거..2만약그냥레프트하면 255인데 저걸하면 205내에 50...아앙ㄹㄹ*/
+}
+.con4box p{
+    color:#363636;
+}
+.con4box .con4Date{
+    color:#36f;
+}
+
+.con4box:last-child{
+     margin-right: 0;
+}
+
+
+.fInfo{}
+
+
+
+#footer{
+    background-image: url(../images/bg_footer.gif); 
+    width:100%;
+    height: 200px;
+}
+
+.fMenu li a{
+    color:white;
+    vertical-align: middle;
+    position: relative; /*쩌어 밑에 짝궁있음*/
+}
+.fMenu{
+    font-size: 0;
+    
+}
+.fMenu li{
+    display: inline-block;
+    padding-top: 50px;
+    font-size: 15px;
+
+    
+}
+
+
+.fCopy{
+    font-size: 11px;
+    color:#D27A70;
+    line-height: 14px;
+    margin-top: 25px;
+
+}
+/*ul은 블락요소 이미지는 인라인요소*/
+
+
+.fMenu li:after{ /*글옆에 선만들어주는거~~~~~~~~~~~~~~~~~~~~~~*/
+    content: "";/*에프터랑 컨텐트 ,디스플레이인라인블럭은 세트!*/
+    display: inline-block;
+    width: 1px;
+    height: 14px;
+    background: white;
+    vertical-align: middle;/*세로정렬 사진이랑 맞게해주는거..!! 여기도 버티칼얼라인 줘야하고 img에도 주면 딱맞게됨!이경우는 fMenu li 에다가 버티칼얼라인미들줘야됨~~*/
+    margin: 0px 7px;
+
+}
+
+.fMenu li:hover a:before{
+    display: block;
+}
+
+
+
+.fMenu li:last-child:after{ /*애프터값 줘서 마지막꺼 없애려면 이거위에꺼 이름 다적어줘야 에프터값 먹힘 ㅠㅠ*/
+    display:none;/*안보임처리*/
+}
+
+
+
+
+
+.fMenu li:hover a{ /*a넣은것은 이제 커서댓을때 검정색되기위해서 뒤에 a붙인거*/
+    text-decoration: underline;/*마우스 커서댔을때 언더라인이 나타나는것..!*/
+    color: black;
+}
+
+.fMenu li a:before{
+    content:"";
+    width:100%; /* 100퍼센트하면 li자체 길이에 맞는 길이가됨*/
+    height: 1px;
+    background: #fff;
+    position: absolute;
+    /*원래앱솔루트하면 놀영역만들어줘야해서 ㄹ릴레이티브해줘야되는데 (원래 그윗바로 부모에게해서 놀영역만들어줘야되는데 얘는 각방을주기위해 쩌~위에있는 .fMenu li a에 릴레이티브 줘야함!!!!!!!!)*/
+    bottom:0;
+    display: none;
+}
+
+
+
+/********************쌤이랑************************/
+
+
+
+
+
+
+
+/*********************내가한거*************************/
+.line{
+    border-top: 2px solid red;
+}
+
+
+.holly h2,.holly .sns{
+     vertical-align:middle;
+    /*버티칼얼라인은 플루트레프트&cf 조합이아닌 인라인블락&폰트사이즈0의 조합일때만 가능하당 그리고 이거쓸때는 앞에 부모랑 다불러오고 같이 해줄것들 , 이거해줘서 다적어줘야 먹힘*/
+}
+.holly{
+    font-size: 0;
+    margin-top: 50px;
+}
+
+.holly h2 img{
+    display:block;
+    font-size: 0;
+    margin-bottom: 5px;
+    margin-right: 5px;
+
+}
+.sns img{
+    margin:0 2px;
+}
+
+
+
+
+
+
+
+.holly h2,.sns{
+    display: inline-block;
+}
+
+.crown{
+    margin:25px 0;
+}
+
+.crown p{
+    font-size: 12px;
+    color: blue;
+}
+.crown p2{
+    font-size: 11.5px;
+    color: #363636;
+}
+
+.crown_1 img{
+    float: left;
+    margin: 8px;
+}
+.crown_1{
+    width: 210px;
+    float: left;
+    padding-right: 30px;
+    line-height: 15px;/*글자사이 세로간격~조절하는거어....~*/
+}
+
+.crown_1:last-child{
+        padding-right: 0px;
+}
+
+/*********************************************/
+
+
+/*******************************************************************/
+
+

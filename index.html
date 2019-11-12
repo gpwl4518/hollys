@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>할리스 메인 작업</title>
+<style>
+    /*공통css*/
+    
+    body,ul,h1{
+        margin:0;
+        padding:0;
+        list-style:none;
+    }
+    #wrap{
+        width:100%;
+    }
+    a{
+        color:#000;
+        text-decoration:none;
+    }
+    
+    /*헤더부분*/
+    #header{}
+    #header .headerIn{
+        width:940px;
+        margin:0 auto;
+        position:relative;
+    }
+    .headerIn h1{
+        padding-top:50px;
+        text-align:center;
+    }
+    .headerIn h1 a{}
+    .topMenu{
+        position:absolute;
+        top:0;
+        left:0;
+    }
+    .topMenu li{
+        float:left;
+    }
+    .topMenu li:last-child{
+        margin-left:15px;
+        margin-top:20px;
+    }
+    .topMenu li a{}
+    .utill{
+        position:absolute;
+        top:15px;
+        right:0;
+    }
+    .utill li{
+        float:left;
+    }
+    .utill li:after{
+        content:"";
+        display:inline-block;
+        vertical-align:middle;
+        width:1px;
+        height:6px;
+        margin:0 10px;
+        margin-top:-5px;
+        background:#999;
+    }
+    .utill li:last-child:after{
+        display:none;
+    }
+    .utill li a{}
+    .gnb{
+        font-size:0;
+        text-align:center;
+        padding:20px 0;
+    }
+    .gnb li{
+        display:inline-block;
+    }
+    .gnb li .on{
+        display:none;
+    }
+    .gnb li:hover .on{
+        display:block;
+    }
+    .gnb li:hover .off{
+        display:none;
+    }
+    .gnb li a{
+        display:block;
+        padding:0 30px
+    }
+    
+    /*메인슬라이스*/
+    #mainSlider{
+        width:100%;
+        height:480px;
+        position:relative;
+        overflow:hidden;
+    }
+    #mainSlider img{
+        position:absolute;
+        left:50%;
+        margin-left:-960px;
+    }
+    
+    
+    /*메인컨텐츠시작*/
+    #container{
+        width:940px;
+        margin:30px auto;
+    }
+    
+    .mainRow1{}
+    .mainRow1 h3{
+        margin:0;
+    }
+    .mainRow1 a,.mainRow1 img{
+        display:block;
+    }
+    .mainRow1:after{
+        content:"";
+        display:block;
+        clear:both;
+    }
+        .mainRow1 .row1_1,.mainRow1 .row1_2,.mainRow1 .row1_3{
+            width:205px;
+            margin-right:35px;
+            float:left;
+        }
+        .mainRow1 .row1_2{
+            width:460px;
+        }
+        .mainRow1 .row1_3{
+            margin-right:0;
+        }
+
+            .mainRow1 .row1_1 p{
+                margin:0;
+            }
+
+            .mainRow1 .row1_2 p{
+                font-size:12px;
+                color:#6f6f6f;
+            }
+            .mainRow1 .row1_2 ul{
+                margin-top:30px;
+                font-size:0;   
+                text-align:center;
+            }
+            .mainRow1 .row1_2 ul li{
+                width:150px;
+                text-align:center;
+                display:inline-block;
+                font-size:12px;
+                background:url(images/mall_bar01.gif) no-repeat;
+            }
+            .mainRow1 .row1_2 ul li:first-child{
+                background:none;
+            }
+            .mainRow1 .row1_2 ul li a{
+                color:#6f6f6f;
+            }
+            .mainRow1 .row1_2 ul li a img{
+                margin:10px auto;
+            }
+    
+    .mainRow2{
+        font-size:0;
+        
+    }
+    
+    .cf:after{
+        content:"";
+        display:block;
+        clear:both;
+    }
+    .mainRow3{
+        font-size:12px;
+        color:#6f6f6f;
+        margin-top:30px;
+    }
+    .mainRow3 a{color:#6f6f6f;}
+    .row3_1,.row3_2,.row3_3,.row3_4{
+        width:205px;
+        margin-right:35px;
+        float:left;
+    }    
+    .row3_4{
+        margin-right:0;
+    }
+    .moreBtn{}
+    .moreBtn a img{
+        vertical-align:middle;
+    }
+    
+    .row3_3 .moreBtn{}
+    .row3_3 ul{}
+    .row3_3 ul li{
+        line-height:20px;
+    }
+    .row3_3 ul li a{
+        width:150px;
+        overflow:hidden;
+        text-overflow:ellipsis;
+        white-space:nowrap;
+        display:inline-block;
+        vertical-align:top;
+    }
+    .row3_3 ul li span{}
+    
+    .row3_4{
+        text-align:center;
+    }
+    .row3_4 a{
+        display:inline-block;
+        padding:0 4px;
+    }
+    .row3_4 a img{
+        display:block;
+        margin:0 auto;
+    }
+    
+    /*메인컨텐츠4*/
+    .mainRow4{
+        margin-top:30px;
+        padding-top:30px;
+        border-top:2px solid red;
+    }
+    .mainRow4 h3{}
+    .mainRow4 h3 .sns{
+        display:inline-block;
+        vertical-align:middle;
+        margin-top:-6px;
+        font-size:0;
+    }
+    .mainRow4 h3 .sns li{
+        display:inline-block;
+        margin-right:5px;
+    }
+    .mainRow4 h3 .sns li a{
+        display:block;
+    }
+    .mainRow4 .row4Box{
+        width:205px;
+        margin-right:35px;
+        font-size:12px;
+        color:#36f;
+        float:left;
+        background:url(images/48_48.png) no-repeat;
+        background-position:left center;
+        padding-left:55px;
+        box-sizing:border-box;
+    }
+    .mainRow4 .row4Box:last-child{
+        margin-right:0;
+    }
+    .mainRow4 .row4Box p{
+        margin:0;
+    }
+    .mainRow4 .row4Box a{
+        color:#363636;
+    }
+    
+    /*푸터시작*/
+    #footer{
+        background:url(images/bg_footer.gif);
+        padding:50px 0;
+    }
+    .footerIn{
+        width:940px;
+        margin:0 auto;
+        font-size:11px;
+        color:#de898e;
+    }
+    .footerIn ul{
+        font-size:0;
+        margin-bottom:20px;
+    }
+    .footerIn ul li{
+        display:inline-block;
+        font-size:15px;
+    }
+    .footerIn ul li:after{
+        content:"";
+        display:inline-block;
+        vertical-align:top;
+        width:1px;
+        height:10px;
+        margin:0 5px;
+        margin-top:6px;
+        background:#fff;
+    }
+    .footerIn ul li:last-child:after{
+        display:none;
+    }
+    .footerIn ul li a{
+        color:#fff;
+    }
+    .footerIn ul li a:hover{
+        text-decoration:underline;
+    }
+    
+</style>
+</head>
+<body>
+<!--전체시작-->
+<div id="wrap">
+    <header id="header">
+        <div class="headerIn">
+            
+            <!--로고시작-->
+            <h1>
+                <a href="#">
+                    <img src="images/logo.gif" alt="로고"/>
+                </a>
+            </h1>
+            <!--로고끝-->
+            
+            <!--leftTop메뉴-->
+            <ul class="topMenu">
+                <li>
+                    <a href="#">
+                        <img src="images/gnb_smenu01.png" alt="가맹문의"/>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="images/gnb_smenu02.gif" alt="아카데미"/>
+                    </a>
+                </li>
+            </ul>
+            <!--leftTop메뉴-->
+            
+            <!--utill-->
+            <ul class="utill">
+                <li>
+                    <a href="#">
+                        <img src="images/util_01.gif" alt="로그인"/>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="images/util_02.gif" alt="회원가입"/>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="images/util_09.gif" alt="고객센터"/>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="images/util_05.gif" alt="영문"/>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="images/util_chinese.gif" alt="중문"/>
+                    </a>
+                </li>
+            </ul>
+            <!--utill-->
+            
+            <!--gnb-->
+            <ul class="gnb">
+                <li>
+                    <a href="#">
+                        <img src="images/gnb_01.gif" class="off" alt="메뉴"/>
+                        <img src="images/gnb_01_on.gif" class="on" alt="메뉴"/>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="images/gnb_02.gif" class="off" alt="할리스 몰"/>
+                        <img src="images/gnb_02_on.gif" class="on" alt="할리스 몰"/>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="images/gnb_03.gif" class="off" alt="멤버십"/>
+                        <img src="images/gnb_03_on.gif" class="on" alt="멤버십"/>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="images/gnb_04.gif" class="off" alt="할리스뉴스"/>
+                        <img src="images/gnb_04_on.gif" class="on" alt="할리스뉴스"/>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="images/gnb_05.gif" class="off" alt="스토어"/>
+                        <img src="images/gnb_05.gif" class="on" alt="스토어"/>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="images/gnb_06.gif" class="off" alt="할리스이즈"/>
+                        <img src="images/gnb_06_on.gif" class="on" alt="할리스이즈"/>
+                    </a>
+                </li>
+            </ul>
+            <!--gnb-->
+            
+        </div>
+    </header>
+    
+    <!--메인슬라이더-->
+    <div id="mainSlider">
+        <img src="images/mainBanner_201710310442383740.jpg" alt="메인배너"/>
+    </div>
+    <!--메인슬라이더-->
+    
+    <!--메인컨텐츠 시작-->
+    <div id="container">
+        
+        <!--메인컨텐츠1-->
+        <div class="mainRow1">
+            
+            <!--프랜차이즈시작-->
+            <div class="row1_1">
+                <h3><img src="images/menu_tit.gif" alt="프랜차이즈 타이틀"/></h3>
+                <p>
+                    <a href="#">
+                        <img src="images/menu_img01.gif" alt="프랜차이즈 이미지"/>
+                    </a>
+                </p>
+            </div>
+            <!--프랜차이즈끝-->
+            
+            <!--할리스몰시작-->
+            <div class="row1_2">
+                <h3><img src="images/mall_tit.gif" alt="할리스몰 타이틀"/></h3>
+                <p>할리스커피 기프티카드 및 할리스콘 구입</p>
+                <ul>
+                    <li>
+                        <a href="#">
+                            <img src="images/mall_img03.gif" alt="커피"/>
+                            COFFEE
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="images/mall_img04.gif" alt="음료"/>
+                            Beverage
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="images/mall_img05.gif" alt="빵"/>
+                            Bakery
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!--할리스몰끝-->
+            
+            <!--매장안내부분시작-->
+            <div class="row1_3">
+                <h3><img src="images/store_tit.gif" alt="매장안내 타이틀"/></h3>
+                <p>
+                    <a href="#">
+                        <img src="images/store_img01.gif" alt="매장안내 이미지"/>
+                    </a>
+                </p>
+            </div>
+            <!--매장안내부분끝-->
+            
+        </div>
+        <!--메인컨텐츠1-->
+        
+        
+        <!--메인컨텐츠2-->
+        <div class="mainRow2">
+            <a href="#">
+                <img src="images/mainBanner_201706281034172160.jpg" alt="기프티카드 배너"/>
+            </a>
+            <a href="#">
+                <img src="images/mainBanner_201706281035570070.gif" alt="선물 배너"/>
+            </a>
+            <a href="#">
+                <img src="images/mainBanner_201511040156219650.jpg" alt="멤버십 배너"/>
+            </a>
+        </div>
+        <!--메인컨텐츠2-->
+        
+        <!--메인컨텐츠3시작-->
+        <div class="mainRow3 cf">
+            <div class="row3_1">
+                <h3><img src="images/academy_tit.gif" alt="아카데미타이틀"/></h3>
+                <p>할리스커피 아카데미와 함께하는 즐거운 커피여행!</p>
+                <p class="moreBtn">
+                    <a href="#">
+                        <img src="images/ico_arrow.gif" alt="바로가기버튼">
+                        바로가기
+                    </a>
+                </p>                
+            </div>
+            <div class="row3_2">
+                <h3><img src="images/recruit_tit.gif" alt="인재채용타이틀"/></h3>
+                <p>할리스커피에서 커피를 이해하고, 문화를 만들어 갈 인재를 초대합니다.</p>
+                <p class="moreBtn">
+                    <a href="#">
+                        <img src="images/ico_arrow.gif" alt="바로가기버튼"/>
+                        바로가기
+                    </a>
+                </p>  
+            </div>
+            <div class="row3_3">
+                <h3>
+                    <img src="images/news_tit.gif" alt="뉴스타이틀"/>
+                    <a href="#" class="moreBtn">
+                        <img src="images/ico_arrow.gif" alt="바로가기버튼"/>
+                    </a>
+                </h3>
+                <ul>
+                    <li>
+                        <a href="#">할리스 홈페이지 오픈 축하합니다.</a>
+                        <span>04-04</span>
+                    </li>
+                    <li>
+                        <a href="#">할리스 홈페이지 오픈 축하합니다.</a>
+                        <span>04-04</span>
+                    </li>
+                    <li>
+                        <a href="#">할리스 홈페이지 오픈 축하합니다.</a>
+                        <span>04-04</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="row3_4">
+                <a href="#">
+                    <img src="images/img_etc01.gif" alt="가맹문의 아이콘"/>
+                    가맹문의
+                </a>
+                <a href="#">
+                    <img src="images/img_etc02.gif" alt="아카데미 아이콘"/>
+                    아카데미 강좌
+                </a>
+                <a href="#">
+                    <img src="images/img_etc03.gif" alt="고객문의 아이콘"/>
+                    고객문의
+                </a>
+            </div>
+        </div>
+        <!--메인컨텐츠3끝-->
+        
+        <!--메인컨텐츠4시작-->
+        <div class="mainRow4 cf">
+            <h3>
+                <img src="images/sns_tit.gif" alt="sns타이틀"/>
+                <ul class="sns">
+                    <li>
+                        <a href="#">
+                            <img src="images/sns_facebook.gif" alt="페이스북아이콘"/>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="images/sns_instagram.gif" alt="인스타그램아이콘"/>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="images/sns_blog.gif" alt="블로그아이콘"/>
+                        </a>
+                    </li>
+                </ul>
+            </h3>
+            
+            <div class="row4Box">
+                <p>2018-04-04 16:21</p>
+                <a href="#">
+                #.트래블 with 할리스 따뜻한 커피 한 잔과 함께 하는 나만의
+                </a>
+            </div>
+            <div class="row4Box">
+                <p>2018-04-04 16:21</p>
+                <a href="#">
+                #.트래블 with 할리스 따뜻한 커피 한 잔과 함께 하는 나만의
+                </a>
+            </div>
+            <div class="row4Box">
+                <p>2018-04-04 16:21</p>
+                <a href="#">
+                #.트래블 with 할리스 따뜻한 커피 한 잔과 함께 하는 나만의
+                </a>
+            </div>
+            <div class="row4Box">
+                <p>2018-04-04 16:21</p>
+                <a href="#">
+                #.트래블 with 할리스 따뜻한 커피 한 잔과 함께 하는 나만의
+                </a>
+            </div>
+        </div>
+        <!--메인컨텐츠4끝-->  
+    </div>
+    <!--메인컨텐츠 끝-->
+    
+    <!--푸터시작-->
+    <footer id="footer">
+        <div class="footerIn">
+            <ul>
+                <li><a href="#">유통관리시스템</a></li>
+                <li><a href="#">개인정보취급방침</a></li>
+                <li><a href="#">서비스이용약관</a></li>
+                <li><a href="#">멤버십이용약관</a></li>
+                <li><a href="#">고객문의</a></li>
+                <li><a href="#">고객설문</a></li>
+                <li><a href="#">사이트맵</a></li>                
+            </ul>
+            법인명: (주) 할리스에프앤비 대표자: 김유진 사업자등록번호 211-87-61044<br/>
+            통신판매업: 제2012-서울강남-01081호<br/>
+            주소 : 서울특별시 종로구 율곡로 88 삼환빌딩 8층 (운니동) 대표전화 : 02-2188-7100 (가맹문의 : 1670-4432)<br/>
+            COPYRIGHT 2015 HOLLYS F&amp;B Co., Ltd. All Rights Reserved.
+        </div>
+    </footer>
+    <!--푸터끝-->
+    
+    
+    
+</div>
+<!--전체끝-->
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
